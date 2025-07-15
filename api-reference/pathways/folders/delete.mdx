@@ -1,0 +1,43 @@
+---
+title: 'Delete Folder'
+api: 'DELETE /v1/pathway/folders/{folder_id}'
+description: Deletes a specific folder for the authenticated user. The folder must be empty to be deleted.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+
+### Path Parameters
+<ParamField path="folder_id" type="string" required>
+The ID of the folder to delete.
+</ParamField>
+
+
+
+
+
+
+
+
+### Response
+
+<ResponseField name="folder_id" type="string">
+   The ID of the deleted folder.
+</ResponseField>
+
+
+
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

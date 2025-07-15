@@ -1,0 +1,51 @@
+---
+title: 'Create Folder'
+api: 'POST /v1/pathway/folders'
+description: Creates a new folder for the authenticated user.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+
+### Body Parameters
+<ParamField body="name" type="string" required={true}>
+The name of the new folder.
+</ParamField>
+<ParamField body="parent_folder_id" type="string" required={true}>
+The ID of the version to be deleted.
+</ParamField>
+
+
+
+
+
+
+
+
+### Response
+
+<ResponseField name="folder_id" type="string">
+   The unique identifier of the newly created folder.
+</ResponseField>
+<ResponseField name="name" type="string">
+ The name of the newly created folder.
+</ResponseField>
+<ResponseField name="parent_folder_id" type="string">
+ The ID of the parent folder, if applicable.
+</ResponseField>
+
+
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

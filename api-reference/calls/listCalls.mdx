@@ -1,0 +1,105 @@
+---
+title: "List Calls"
+api: "GET v1/calls"
+description: Returns a set of metadata for each call dispatched by your account.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+<ParamField header="encrypted_key" type="string">
+  Use your own Twilio account and only return inbound numbers associated with
+  that account sid (optional).
+</ParamField>
+
+### Query Parameters
+
+<ParamField query="from_number" type="string">
+    Filter calls by the number they were dispatched from.
+
+    The number that initiated the call - the user’s phone number for inbound calls, or the number your AI Agent called from for outbound calls.
+
+</ParamField>
+
+<ParamField query="to_number" type="string">
+    Filter calls by the number they were dispatched to.
+
+    The number that answered the call - the user’s phone number for outbound calls, or your AI Agent’s number for inbound calls.
+
+</ParamField>
+<ParamField query="from" type="int">
+    The starting index (inclusive) for the range of calls to retrieve.
+</ParamField>
+<ParamField query="to" type="int">
+    The ending index for the range of calls to retrieve.
+</ParamField>
+<ParamField query="limit" type="int" default="1000">
+    The maximum number of calls to return in the response.
+</ParamField>
+<ParamField query="ascending" type="boolean" default="false">
+    Whether to sort the calls in ascending order of their creation time.
+</ParamField>
+<ParamField query="start_date" type="string">
+    Get calls including and after a specific date. Format: YYYY-MM-DD
+</ParamField>
+<ParamField query="end_date" type="string">
+    Get calls including and before a specific date. Format: YYYY-MM-DD
+</ParamField>
+<ParamField query="created_at" type="string">
+    Get calls for a specific date. Can’t be used with end_date or start_date. Format: YYYY-MM-DD
+</ParamField>
+<ParamField query="completed" type="boolean">
+    Whether to filter calls by complete status.
+</ParamField>
+<ParamField query="batch_id" type="string">
+    Get calls from a specific batch.
+</ParamField>
+<ParamField query="answered_by" type="string">
+    Filter by answered_by type. Example: human
+</ParamField>
+<ParamField query="inbound" type="boolean">
+    Whether to filter based on inbound or not.
+</ParamField>
+<ParamField query="duration_gt" type="float">
+    Duration (Call Length) greater than the value provided. Example: 0.5 (This would be equal to half a minute)
+</ParamField>
+<ParamField query="duration_lt" type="float">
+    Duration (Call Length) less than the value provided. Example: 0.5 (This would be equal to half a minute)
+</ParamField>
+<ParamField query="campaign_id" type="string">
+    Get calls for a specific campaign id.
+</ParamField>
+
+### Response
+
+<ResponseField name="total_count" type="integer">
+  The total number of calls that match the query filters. This number may be greater than the number of calls returned in the response.
+
+    For example:
+
+    - If you have 10,000 calls, and don’t include any filters, the ```total_count``` will be 10,000.
+    - If you have 10,000 calls and 9,000 of them match the query, the ```total_count``` will be 9,000 regardless of the number of calls returned in the response.
+</ResponseField>
+
+<ResponseField name="count" type="integer">
+  The number of calls returned in the response.
+</ResponseField>
+
+<ResponseField name="calls" type="array">
+    An array of call data objects. See the [Call](https://docs.luly.ai/api-reference/calls/callDetails) section for details.
+
+    Note: Individual call transcripts are not included due to their size.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "call_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

@@ -1,0 +1,32 @@
+"anchors": [
+    {
+      "name": "Community & support",
+      "icon": "slack",
+      "url": "https://mintlify.com/community"
+    },
+    {
+      "name": "Blog",
+      "icon": "newspaper",
+      "url": "https://mintlify.com/blog"
+    },
+    {
+      "name": "AMHLB Prompting Guide",
+      "icon": "magnifying-glass",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Full Code Examples",
+      "icon": "code",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Zapier No-code integration",
+      "icon": "bolt",
+      "url": "https://mintlify.com/docs"
+    },
+    {
+      "name": "Enterprise inquiries",
+      "icon": "question",
+      "url": "https://mintlify.com/docs"
+    }
+  ],

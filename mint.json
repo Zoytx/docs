@@ -1,0 +1,241 @@
+{
+  "api": {
+    "baseUrl": "https://app.luly.ai/api/"
+  },
+  "$schema": "https://mintlify.com/schema.json",
+  "name": "Luly AI",
+  "logo": {
+    "dark": "/logo/dark.svg",
+    "light": "/logo/light.svg"
+  },
+  "favicon": "/favicon.svg",
+  "colors": {
+    "primary": "#0099ff",
+    "light": "#0099ff",
+    "dark": "#0099ff",
+    "anchors": {
+      "from": "#0099ff",
+      "to": "#0099ff"
+    }
+  },
+  "topbarLinks": [
+    {
+      "name": "Support",
+      "url": "mailto:lulyai@gmail.com"
+    }
+  ],
+  "topbarCtaButton": {
+    "name": "Get Started",
+    "url": "https://portal.luly.ai/"
+  },
+  "tabs": [
+    {
+      "name": "api-reference",
+      "url": "api-reference"
+    }
+  ],
+  "navigation": [
+    {
+      "group": "Get Started",
+      "pages": [
+        "introduction",
+        "quickstart"
+      ]
+    },
+    {
+      "group": "Luly Enterprise",
+      "pages": [
+        "enterprise/customTwilio",
+        "enterprise/customLLM",
+        "enterprise/customLanguage",
+        "enterprise/ownTwilio",
+        "enterprise/rateLimits"
+      ]
+    },
+    {
+      "group": "Featured Guide",
+      "pages": [
+        "featuredGuide/botpress"
+      ]
+    },
+    {
+      "group": "Basic Tutorials",
+      "pages": [
+        "basicTutorial/conversationalPathways",
+        "basicTutorial/customTools",
+        "basicTutorial/firstPhoneCall",
+        "basicTutorial/webhookSigning",
+        "basicTutorial/1000calls",
+        "basicTutorial/dynamicData",
+        "basicTutorial/maxDuration",
+        "basicTutorial/liveTransfer",
+        "basicTutorial/webhooks"
+      ]
+    },
+    {
+      "group": "Basic",
+      "pages": [
+        "api-reference/basic/sendCall",
+        "api-reference/basic/sendCallPathways"
+      ]
+    },
+    {
+      "group": "Calls",
+      "pages": [
+        "api-reference/calls/sendCall",
+        "api-reference/calls/analyzeCall",
+        "api-reference/calls/stopActiveCall",
+        "api-reference/calls/stopAllActiveCalls",
+        "api-reference/calls/listCalls",
+        "api-reference/calls/callDetails",
+        "api-reference/calls/eventStream",
+        "api-reference/calls/audioRecording",
+        "api-reference/calls/correctedTranscript"
+      ]
+    },
+    {
+      "group": "Vector Stores",
+      "pages": [
+        "api-reference/vectorStores/createStore",
+        "api-reference/vectorStores/updateStore",
+        "api-reference/vectorStores/listStore",
+        "api-reference/vectorStores/listDetails",
+        "api-reference/vectorStores/deleteStore"
+      ]
+    },
+    {
+      "group": "Conversational Pathways",
+      "pages": [
+        "api-reference/pathways/getAll",
+        "api-reference/pathways/get",
+        "api-reference/pathways/create",
+        "api-reference/pathways/update",
+        "api-reference/pathways/delete",
+        {
+          "group": "Pathway Chat",
+          "pages": [
+            "api-reference/pathways/chats/create",
+            "api-reference/pathways/chats/chat"
+          ]
+        },
+        {
+          "group": "Pathway Versions",
+          "pages": [
+            "api-reference/pathways/versions/get",
+            "api-reference/pathways/versions/getSpecific",
+            "api-reference/pathways/versions/create",
+            "api-reference/pathways/versions/delete"
+          ]
+        },
+        {
+          "group": "Pathway Folders",
+          "pages": [
+            "api-reference/pathways/folders/get",
+            "api-reference/pathways/folders/getPathways",
+            "api-reference/pathways/folders/create",
+            "api-reference/pathways/folders/delete",
+            "api-reference/pathways/folders/update",
+            "api-reference/pathways/folders/move"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Inbound Numbers",
+      "pages": [
+        "api-reference/inbound/purchase",
+        "api-reference/inbound/update",
+        "api-reference/inbound/list",
+        "api-reference/inbound/details"
+      ]
+    },
+    {
+      "group": "Outbound Numbers",
+      "pages": [
+        "api-reference/outbound/purchase",
+        "api-reference/outbound/list"
+      ]
+    },
+    {
+      "group": "Voices",
+      "pages": [
+        "api-reference/voice/list",
+        "api-reference/voice/details",
+        "api-reference/voice/publishCloned",
+        "api-reference/voice/audioSample"
+      ]
+    },
+    {
+      "group": "Custom Tools",
+      "pages": [
+        "api-reference/customTool/create",
+        "api-reference/customTool/update",
+        "api-reference/customTool/delete",
+        "api-reference/customTool/list",
+        "api-reference/customTool/details"
+      ]
+    },
+    {
+      "group": "Web Agents",
+      "pages": [
+        "api-reference/webAgent/create",
+        "api-reference/webAgent/update",
+        "api-reference/webAgent/authorize",
+        "api-reference/webAgent/delete",
+        "api-reference/webAgent/list"
+      ]
+    },
+    {
+      "group": "Custom Twilio Accounts",
+      "pages": [
+        "api-reference/twilioAccounts/create",
+        "api-reference/twilioAccounts/deleteKey",
+        "api-reference/twilioAccounts/upload",
+        "api-reference/twilioAccounts/deleteNumber"
+      ]
+    },
+    {
+      "group": "Campaigns",
+      "pages": [
+        "api-reference/campaigns/create",
+        "api-reference/campaigns/stop",
+        "api-reference/campaigns/list",
+        "api-reference/campaigns/details"
+      ]
+    },
+    {
+      "group": "Prompts",
+      "pages": [
+        "api-reference/prompts/list",
+        "api-reference/prompts/details",
+        "api-reference/prompts/create"
+      ]
+    },
+    {
+      "group": "Batches",
+      "pages": [
+        "api-reference/batches/send",
+        "api-reference/batches/analyzeBatch",
+        "api-reference/batches/stop",
+        "api-reference/batches/list",
+        "api-reference/batches/detail",
+        "api-reference/batches/retrieve"
+
+      ]
+    },
+    {
+      "group": "SMS",
+      "pages": [
+        "api-reference/sms/registration",
+        "api-reference/sms/status",
+        "api-reference/sms/update",
+        "api-reference/sms/clear",
+        "api-reference/sms/conversationAnalysis",
+        "api-reference/sms/messages",
+        "api-reference/sms/replyMethod",
+        "api-reference/sms/webhook"
+
+      ]
+    }
+  ]
+}

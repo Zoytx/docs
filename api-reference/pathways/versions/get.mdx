@@ -1,0 +1,52 @@
+---
+title: 'Get Pathway Versions'
+api: 'GET /v1/pathway/:pathway_id/versions'
+description: Send a message to a pathway and receive a response.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+
+### Path
+<ParamField path="pathway_id" type="string" required={true}>
+</ParamField>
+
+
+
+
+
+
+
+
+### Response
+
+<ResponseField name="id" type="string">
+   The unique identifier of the pathway version.
+</ResponseField>
+<ResponseField name="Version_number" type="integer">
+  The response from the Assistant to the message sent.
+</ResponseField>
+<ResponseField name="created_at" type="string">
+ The timestamp when this version was created.
+</ResponseField>
+<ResponseField name="name" type="string">
+ The name of this pathway version.
+</ResponseField>
+<ResponseField name="is_latest" type="boolean">
+ Indicates whether this is the latest version of the pathway.
+</ResponseField>
+
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

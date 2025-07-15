@@ -1,0 +1,55 @@
+---
+title: 'Update Folder'
+api: 'PATCH /v1/pathway/folders/{folder_id}'
+description: Updates the name of a specific folder for the authenticated user.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+
+### Path Parameters
+<ParamField path="folder_id" type="string" required={true}>
+The ID of the folder to update.
+</ParamField>
+
+
+### Body Parameters
+<ParamField body="name" type="string" required={true}>
+The new name for the folder.
+</ParamField>
+
+
+
+
+
+
+
+
+
+### Response
+
+<ResponseField name="folder_id" type="string">
+   The unique identifier of the updated folder.
+</ResponseField>
+<ResponseField name="name" type="string">
+  The updated name of the folder.
+</ResponseField>
+<ResponseField name="parent_folder_id" type="string">
+  The ID of the parent folder, if applicable.
+</ResponseField>
+
+
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

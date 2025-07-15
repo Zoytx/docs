@@ -1,0 +1,50 @@
+---
+title: 'List Vector Stores'
+api: 'GET /vectors'
+description: List all vector stores in your account.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+    Your API key for authentication.
+</ParamField>
+
+
+### Query Parameters
+
+<ParamField query="include_text" type="boolean" default="false">
+    Include the full text of the documents stored in the vector store. This can be useful for debugging, but may return large amounts of data.
+</ParamField>
+
+### Response
+
+<ResponseField name="vectors" type="array">
+    An array of objects, for each vector store in your account.
+</ResponseField>
+
+<ResponseField name="vectors[].vector_id" type="string">
+    The unique identifier for the vector store.
+</ResponseField>
+
+<ResponseField name="vectors[].name" type="string">
+    The name of the vector store.
+</ResponseField>
+
+<ResponseField name="vectors[].description" type="string">
+    A description of the vector store.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "vectors": [
+        {
+            "vector_id": "KB-55e64dae-1585-4632-bc97-c909c288c6bc",
+            "name": "luly AI FAQs",
+            "description": "Business facts, policies, and frequently asked questions for Luly AI."
+        }
+    ]
+}
+```
+</ResponseExample>

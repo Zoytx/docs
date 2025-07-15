@@ -1,0 +1,35 @@
+---
+title: 'Create Encrypted Key'
+api: 'POST /v1/accounts'
+description: Integrate your own Twilio account with Luly. See [Enterprise Twilio Integration](https://docs.luly.ai/enterprise-features/custom-twilio) for more information.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="account_sid" type="string" required={true}>
+    Your Twilio account SID.
+</ParamField>
+
+<ParamField body="auth_token" type="string" required={true}>
+    Your Twilio auth token.
+</ParamField>
+
+### Response
+
+Your ```encrypted_key``` to store and use in future requests.
+
+
+<ResponseExample>
+```json Response
+{
+    "status": "success",
+    "encrypted_key": "YOUR_ENCRYPTED_KEY"
+}
+```
+</ResponseExample>

@@ -1,0 +1,87 @@
+---
+title: 'Create Pathway Version'
+api: 'POST /v1/pathway/{pathway_id}/version'
+description: Creates a new version of a specific pathway, including its name, nodes, and edges.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+
+
+### Path Parameters
+<ParamField path="pathway_id" type="string" required={true}>
+    The ID of the pathway for which to create a new version.
+</ParamField>
+
+### Request Body
+<ParamField body="name" type="string" required={true}>
+    The name of the new pathway version.
+</ParamField>
+<ParamField body="nodes" type="array of object" required={true}>
+    An array of node objects defining the structure of the pathway.
+</ParamField>
+<ParamField body="nodes" type="object" required={true}>
+    The ID of the pathway.
+    <Accordion title="Node Object Parameters">
+    - id -- Unique identifier of the node
+
+    - type -- Type of the node (e.g., “Default”, “End Call”, “Webhook”)
+
+    - data -- Object containing node-specific data
+
+      - name -- Name of the node
+
+      - text or prompt -- Text or prompt associated with the node
+
+      - Other properties specific to the node type
+    </Accordion>
+    <ParamField body="edges" type="array of object" required={true}>
+    An array of edge objects defining the connections between nodes.
+    <Accordion title="Edge Object Parameters">
+    - id -- Unique identifier of the edge
+
+    - source -- ID of the source node
+
+    - target -- ID of the target node
+
+    - label -- Label for this edge
+
+    </Accordion>
+</ParamField>
+</ParamField>
+### Response
+<ParamField body="status" type="string">
+The status of the operation (e.g., “success”).
+</ParamField>
+<ParamField body="message" type="string">
+A message describing the result of the operation.
+</ParamField>
+<ParamField body="data" type="object">
+<Accordion title="Show Properties">
+<ParamField body="created_at" type="string">
+The timestamp when the new version was created.
+</ParamField>
+<ParamField body="id" type="string">
+The unique identifier of the newly created version.
+</ParamField>
+<ParamField body="name" type="string">
+The name of the newly created version.
+</ParamField>
+<ParamField body="version_number" type="integer">
+The version number of the newly created version.
+</ParamField>
+</Accordion>
+</ParamField>
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>

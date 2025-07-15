@@ -1,0 +1,49 @@
+---
+title: 'Create Pathway Chat'
+api: 'POST /v1/pathway/chat/create'
+description: Create an instance of a pathway chat, which can be used to send and receive messages to the pathway.
+---
+
+### Headers
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+### Path
+
+<ParamField header="authorization" type="string" required={true}>
+  Your API key for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="pathway_id" type="string">
+  Pathway ID of the pathway to create a chat instance for.
+</ParamField>
+
+<ParamField body="start_node_id" type="string">
+  The start node ID of the pathway.
+</ParamField>
+
+### Response
+
+<ResponseField name="status" type="string">
+    Can be ```success``` or ```error```.
+</ResponseField>
+<ResponseField name="chat_id" type="uuid">
+   The ID of the chat instance created. This will be used to send and receive messages to the pathway via the /pathway/chat endpoint.
+</ResponseField>
+<ResponseField name="message" type="string">
+   If the status is success, the message will say “Chat instance created successfully.” Otherwise, if the status is error, the message will say “Error creating chat instance.”
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "pathway_id": "9d404c1b-6a23-4426-953a-a52c392ff8f1"
+}
+
+```
+</ResponseExample>
