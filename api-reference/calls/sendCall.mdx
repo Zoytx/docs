@@ -54,12 +54,12 @@ description: Send an AI phone call with a custom objective and actions.
     - Phrase instructions like you are speaking to the agent before the call.
     - Any time you tell the agent not to do something, provide an example of what they should do instead.
     - Keep the prompt under 2,000 characters where possible.
-    - Want to easily test out exactly how your agent will behave? [Try out Agent Testing!](https://portal.luly.ai/login)
+    - Want to easily test out exactly how your agent will behave? [Try out Agent Testing!](https://api.platform.com/login)
 
 </ParamField>
 
 <ParamField body="pathway_id" type="string">
-    This is the pathway ID for the pathway you have created on our dev portal. You can access the ID of your pathways by clicking the ‘Copy ID’ button of your pathway [here](https://portal.luly.ai/login)
+    This is the pathway ID for the pathway you have created on our dev portal. You can access the ID of your pathways by clicking the ‘Copy ID’ button of your pathway [here](https://api.platform.com/login)
 
     Note: Certain parameters do not apply when using pathways.
     <Accordion title="Unused Parameters">
@@ -83,7 +83,7 @@ description: Send an AI phone call with a custom objective and actions.
 </ParamField>
 
 <ParamField body="start_node_id" type="string">
-    This is the node ID for the node you want the pathway to start from. You can access the ID of your nodes [here](https://docs.luly.ai/api-reference/pathways/get)
+    This is the node ID for the node you want the pathway to start from. You can access the ID of your nodes [here](https://docs.malakai.ai/api-reference/pathways/get)
 
     Note: This parameter is only used when ```pathway_id``` is provided.
 
@@ -109,7 +109,7 @@ description: Send an AI phone call with a custom objective and actions.
 
     Usage example: ```voice: "maya"```
 
-    Luly Curated voices:
+    malakai Curated voices:
     - ```maya```
     - ```mason```
     - ```ryan```
@@ -118,7 +118,7 @@ description: Send an AI phone call with a custom objective and actions.
     - ```matt```
     - ```evelyn```
 
-    Use the [GET /v1/voices](https://api.luly.ai/voices) endpoint to see a full list of your available voices.
+    Use the [GET /v1/voices](https://api.malakai.ai/voices) endpoint to see a full list of your available voices.
 
     <Accordion title="Moving from `voice_id` to `voice`">
         Note: Including ```voice_id``` or ```reduce_latency``` in your request is still supported, but not recommended.
@@ -344,7 +344,7 @@ description: Send an AI phone call with a custom objective and actions.
 <ParamField body="tools" type="array" >
     Interact with the real world through API calls.
 
-    Detailed tutorial here: [Custom Tools](https://docs.luly.ai/tutorials/custom-tools)
+    Detailed tutorial here: [Custom Tools](https://docs.malakai.ai/tutorials/custom-tools)
 
 </ParamField>
 
@@ -428,7 +428,7 @@ description: Send an AI phone call with a custom objective and actions.
 
     The timezone is optional, and defaults to UTC if not specified.
 
-    Note: Scheduled calls can be cancelled with the [POST /v1/calls/:cal\l_id/stop](https://docs.luly.ai/api-v1/post/calls-id-stop) endpoint.
+    Note: Scheduled calls can be cancelled with the [POST /v1/calls/:cal\l_id/stop](https://docs.malakai.ai/api-v1/post/calls-id-stop) endpoint.
 
 </ParamField>
 
@@ -502,14 +502,14 @@ description: Send an AI phone call with a custom objective and actions.
 <ParamField body="from" type="string" >
     Specify a phone number to call from that you own or have uploaded from your Twilio account. Country code is required, spaces or parentheses must be excluded.
 
-    By default, calls are initiated from a separate pool of numbers owned by luly.
+    By default, calls are initiated from a separate pool of numbers owned by malakai.
 
 </ParamField>
 
 <ParamField body="webhook" type="string" >
     When the call ends, we’ll send the call details in a POST request to the URL you specify here.
 
-    The request body will match the response from the [GET /v1/calls/:call_id](https://docs.luly.ai/api-v1/get/calls-id) endpoint.
+    The request body will match the response from the [GET /v1/calls/:call_id](https://docs.malakai.ai/api-v1/get/calls-id) endpoint.
 
 </ParamField>
 

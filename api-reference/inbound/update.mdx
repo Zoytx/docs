@@ -11,7 +11,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 </ParamField>
 
 <ParamField header="encrypted_key" type="string">
-    The ```encrypted_key``` for the Twilio account that owns the phone number you want to modify. Not required if you are using a Luly phone number.
+    The ```encrypted_key``` for the Twilio account that owns the phone number you want to modify. Not required if you are using a malakai phone number.
 </ParamField>
 
 ### Path Parameters
@@ -46,7 +46,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 
     #### Prompting Tips:
         - Want to easily test out exactly how your agent will behave?
-            - [Try out Agent Testing!](https://portal.luly.ai/login)
+            - [Try out Agent Testing!](https://api.platform.com/login)
         - Aim for less than >2,000 characters where possible.
         - Simple, direct prompts are the most predictable and reliable.
         - Frame instructions positively:
@@ -69,7 +69,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 ### Agent Parameters (Body)
 
 <ParamField body="voice" type="string">
-    Set your agent’s voice - all available voices can be found with the [List Voices](https://docs.luly.ai/api-v1/get/voices) endpoint.
+    Set your agent’s voice - all available voices can be found with the [List Voices](https://docs.malakai.ai/api-v1/get/voices) endpoint.
 </ParamField>
 
 <ParamField body="background_track" type="string">
@@ -118,7 +118,7 @@ description: Update your inbound agent’s settings, prompt and other details.
     In nearly all cases, ```enhanced``` is the best choice for now.
 
     <Accordion title="Model differences">
-        There are three different ways to use luly:
+        There are three different ways to use malakai:
 
             - ```model: base```
                 - The original, follows scripts/procedures most effectively.
@@ -139,7 +139,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 <ParamField body="tools" type="array" >
     Interact with the real world through API calls.
 
-    Detailed tutorial here: [Custom Tools](https://docs.luly.ai/tutorials/custom-tools)
+    Detailed tutorial here: [Custom Tools](https://docs.malakai.ai/tutorials/custom-tools)
 </ParamField>
 
 <ParamField body="language" type="string" default="en-US" >
@@ -217,7 +217,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 
     Set to ```null``` or an empty string to clear dynamic data settings.
 
-    Detailed usage in the [Send Call](https://docs.luly.ai/api-v1/post/calls) endpoint.
+    Detailed usage in the [Send Call](https://docs.malakai.ai/api-v1/post/calls) endpoint.
 </ParamField>
 
 <ParamField body="interruption_threshold" type="number" default="100">
@@ -263,7 +263,7 @@ description: Update your inbound agent’s settings, prompt and other details.
 <ParamField body="webhook" type="string">
     When the call ends, we’ll send the call details in a POST request to the URL you specify here.
 
-    The request body will match the response from the [GET /v1/calls/:call_id](https://docs.luly.ai/api-v1/get/calls-id) endpoint.
+    The request body will match the response from the [GET /v1/calls/:call_id](https://docs.malakai.ai/api-v1/get/calls-id) endpoint.
 </ParamField>
 
 <ParamField body="analysis_schema" type="object">

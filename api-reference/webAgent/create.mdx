@@ -24,7 +24,7 @@ description: Configure all of the settings for a new web agent.
     
     #### Prompting Tips:
         - Want to easily test out exactly how your agent will behave?
-            - [Try out Agent Testing!](https://portal.luly.ai/login)
+            - [Try out Agent Testing!](https://api.platform.com/login)
         - Aim for less than >2,000 characters where possible.
         - Simple, direct prompts are the most predictable and reliable.
         - Frame instructions positively:
@@ -36,7 +36,7 @@ description: Configure all of the settings for a new web agent.
 </ParamField>
 
 <ParamField body="voice" type="string">
-   Set your agent’s voice - all available voices can be found with the [List Voices](https://docs.luly.ai/api-v1/get/voices) endpoint.
+   Set your agent’s voice - all available voices can be found with the [List Voices](https://docs.malakai.ai/api-v1/get/voices) endpoint.
 </ParamField>
 
 
@@ -105,7 +105,7 @@ description: Configure all of the settings for a new web agent.
     In nearly all cases, ```enhanced``` is the best choice for now.
 
     <Accordion title="Model differences">
-        There are three different ways to use luly:
+        There are three different ways to use malakai:
 
             - ```model: base```
                 - The original, follows scripts/procedures most effectively.
@@ -132,7 +132,7 @@ description: Configure all of the settings for a new web agent.
 <ParamField body="tools" type="array">
    Interact with the real world through API calls.
 
-    Detailed tutorial here: [Custom Tools](https://docs.luly.ai/tutorials/custom-tools)
+    Detailed tutorial here: [Custom Tools](https://docs.malakai.ai/tutorials/custom-tools)
 </ParamField>
 
 
@@ -141,7 +141,7 @@ description: Configure all of the settings for a new web agent.
 
     Set to null or an empty string to clear dynamic data settings.
 
-    Detailed usage in the [Send Call](https://docs.luly.ai/api-v1/post/calls) endpoint.
+    Detailed usage in the [Send Call](https://docs.malakai.ai/api-v1/post/calls) endpoint.
 </ParamField>
 
 <ParamField body="interruption_threshold" type="number" default="100">

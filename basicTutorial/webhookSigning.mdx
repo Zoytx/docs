@@ -2,13 +2,13 @@
 title: "Webhook Signing"
 ---
 
-Luly webhooks are signed with a secret key to ensure that they are not tampered with in transit and to confirm that they were sent by Luly.
+malakai webhooks are signed with a secret key to ensure that they are not tampered with in transit and to confirm that they were sent by malakai.
 
 ## Signing Webhooks
 
-When Luly sends a webhook, it calculates a signature using the HMAC algorithm with the SHA-256 hash function. The signature is then included in the `X-Webhook-Signature` header of the request
+When malakai sends a webhook, it calculates a signature using the HMAC algorithm with the SHA-256 hash function. The signature is then included in the `X-Webhook-Signature` header of the request
 
-To create a webhook signing secret, first go to the [Account Settings in the Dev Portal](https://portal.luly.ai/portal/) and click on the “Keys” tab.
+To create a webhook signing secret, first go to the [Account Settings in the Dev Portal](https://api.platform.com/portal/) and click on the “Keys” tab.
 
 Here you can create a new secret by clicking “Replace Secret”. It will only be shown once, so save it securely
 
@@ -16,7 +16,7 @@ Here you can create a new secret by clicking “Replace Secret”. It will only 
 
 To verify a webhook, you need to calculate the HMAC signature of the request body using the secret key and compare it to the signature in the `X-Webhook-Signature` header.
 
-Note that you must first create a webhook signing secret in the [Account Settings in the Dev Portal](https://portal.luly.ai/portal/)
+Note that you must first create a webhook signing secret in the [Account Settings in the Dev Portal](https://api.platform.com/portal/)
 
 Here’s what an example response might look like:
 

@@ -1,11 +1,11 @@
 ---
 title: "Custom Twilio Integration"
-description: "Connect Luly to your own Twilio account"
+description: "Connect malakai to your own Twilio account"
 ---
 
 ## Overview
 
-Enterprise customers can connect their own Twilio account to Luly. Easily bring over your existing phone numbers, integrations, and more.
+Enterprise customers can connect their own Twilio account to malakai. Easily bring over your existing phone numbers, integrations, and more.
 
 Pre-requisites:
 - Your own Twilio account
@@ -13,7 +13,7 @@ Pre-requisites:
 ## Step 1: Creating an Encrypted Key with your Twilio Credentials
 
 1. Go to your [Twilio Console](https://www.twilio.com/login?g=%2Fconsole%3F&t=2b1c98334b25c1a785ef15b6556396290e3c704a9b57fc40687cbccd79c46a8c) and get your Account SID and Auth Token.
-2. create an  ```encrypted_key``` by [sending an API request](https://docs.luly.ai/api-reference/twilioAccounts/create) to Luly.
+2. create an  ```encrypted_key``` by [sending an API request](https://docs.malakai.ai/api-reference/twilioAccounts/create) to malakai.
 
 This is the only time that your encrypted_key will be returned to you. Make sure to store it securely, and new keys will need to be generated if lost.
 
@@ -32,21 +32,21 @@ For example:
 
 Note:
 
-- You can set your ```from``` number in the API request - this will need to be a number owned by that Twilio account (and not one purchased through Luly).
+- You can set your ```from``` number in the API request - this will need to be a number owned by that Twilio account (and not one purchased through malakai).
 - By default, we’ll send calls from a randomly selected number in the specified Twilio account if a ```from``` is not specified.
 
 ## Step 3: Uploading Inbound numbers
 
 1. Go to your [Twilio Console](https://www.twilio.com/login?g=%2Fconsole%3F&t=2b1c98334b25c1a785ef15b6556396290e3c704a9b57fc40687cbccd79c46a8c) and get your your Twilio phone number(s).
-2. Upload your numbers [through the API](https://docs.luly.ai/api-reference/twilioAccounts/upload) 
+2. Upload your numbers [through the API](https://docs.malakai.ai/api-reference/twilioAccounts/upload) 
 
-We’ll validate that these numbers are owned by that account and add them to your Luly account.
+We’ll validate that these numbers are owned by that account and add them to your malakai account.
 
 ## Step 4: Configuring Inbound Numbers/Webhooks
 
 Note: When updating inbound numbers, the headers need to the include the ```encrypted_key``` in addition to the ```Authorization``` header. Doing so makes sure the updates are applied to the correct Twilio account
 
-Once you update an inbound number through the [Dev Portal](https://portal.luly.ai/) or [API](https://docs.luly.ai/api-reference/inbound/update), that number will be automatically configured to run on Luly’s infrastructure. No additional steps are required!
+Once you update an inbound number through the [Dev Portal](https://api.platform.com/) or [API](https://docs.malakai.ai/api-reference/inbound/update), that number will be automatically configured to run on malakai’s infrastructure. No additional steps are required!
 
 
 

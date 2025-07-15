@@ -1,77 +1,40 @@
 {
   "api": {
-    "baseUrl": "https://app.luly.ai/api/"
+    "baseUrl": "https://api.getmalakai.com/api/"
   },
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Luly AI",
+  "name": "malakai AI",
   "logo": {
-    "dark": "/logo/dark.svg",
-    "light": "/logo/light.svg"
+    "dark": "/favicon.svg",
+    "light": "/favicon.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0099ff",
-    "light": "#0099ff",
-    "dark": "#0099ff",
+    "primary": "#722ed1",
+    "light": "#722ed1",
+    "dark": "#722ed1",
     "anchors": {
-      "from": "#0099ff",
-      "to": "#0099ff"
+      "from": "#722ed1",
+      "to": "#722ed1"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:lulyai@gmail.com"
+      "url": "mailto:malakai@gmail.com"
     }
   ],
   "topbarCtaButton": {
     "name": "Get Started",
-    "url": "https://portal.luly.ai/"
+    "url": "https://platform.getmalakai.com/"
   },
   "tabs": [
     {
-      "name": "api-reference",
+      "name": "API reference",
       "url": "api-reference"
     }
   ],
   "navigation": [
-    {
-      "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart"
-      ]
-    },
-    {
-      "group": "Luly Enterprise",
-      "pages": [
-        "enterprise/customTwilio",
-        "enterprise/customLLM",
-        "enterprise/customLanguage",
-        "enterprise/ownTwilio",
-        "enterprise/rateLimits"
-      ]
-    },
-    {
-      "group": "Featured Guide",
-      "pages": [
-        "featuredGuide/botpress"
-      ]
-    },
-    {
-      "group": "Basic Tutorials",
-      "pages": [
-        "basicTutorial/conversationalPathways",
-        "basicTutorial/customTools",
-        "basicTutorial/firstPhoneCall",
-        "basicTutorial/webhookSigning",
-        "basicTutorial/1000calls",
-        "basicTutorial/dynamicData",
-        "basicTutorial/maxDuration",
-        "basicTutorial/liveTransfer",
-        "basicTutorial/webhooks"
-      ]
-    },
     {
       "group": "Basic",
       "pages": [

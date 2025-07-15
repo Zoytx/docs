@@ -15,17 +15,17 @@ Some examples of what Dynamic Data enables:
 - Handle real-time data like status updates or prices
 
 <Accordion title="Expand to see an example in action">
-    Here’s how to make an [Inbound Agent](https://docs.luly.ai/api-reference/inbound/update) remember past conversations they’ve had with callers. There’s a lot of other useful information we can integrate, like how long ago that call occurred and the call’s duration.
+    Here’s how to make an [Inbound Agent](https://docs.malakai.ai/api-reference/inbound/update) remember past conversations they’ve had with callers. There’s a lot of other useful information we can integrate, like how long ago that call occurred and the call’s duration.
    
-    ```Endpoint: POST https://api.luly.ai/v1/inbound/<<INBOUND NUMBER>>```
+    ```Endpoint: POST https://api.malakai.ai/v1/inbound/<<INBOUND NUMBER>>```
 
     ```javascript
     {
-    "prompt": "You're a service agent working on behalf of Luly AI...",
+    "prompt": "You're a service agent working on behalf of malakai AI...",
     "dynamic_data": [
         {
             // First, retrieve the previous call's data
-            "url": "https://api.luly.ai/v1/calls",
+            "url": "https://api.malakai.ai/v1/calls",
             "method": "GET",
             "headers": {
                 "authorization": <<YOUR API KEY>>
@@ -57,7 +57,7 @@ Some examples of what Dynamic Data enables:
         {
             // Once we have the previous call's ID, we can retrieve the transcript
             // Note the variable used in the URL
-            "url": "https://api.luly.ai/v1/calls/{{previous_call_id}}",
+            "url": "https://api.malakai.ai/v1/calls/{{previous_call_id}}",
             "method": "GET",
             "headers": {
                 "authorization": <<YOUR API KEY>>
@@ -206,7 +206,7 @@ Once defined with `response_data` , variables can be used nearly anywhere.
 
 Afterwards, in your webhooks and when retrieving call transcripts, the `variables` field will contain all variables that were defined during the call.
 
-By far, the easiest way to test out your `dynamic_data` configuration is via the [/dynamic_data/test](https://docs.luly.ai/api-reference/basic/sendCall) endpoint. It returns the original configuration, every raw response, and the final variables after parsing is applied.
+By far, the easiest way to test out your `dynamic_data` configuration is via the [/dynamic_data/test](https://docs.malakai.ai/api-reference/basic/sendCall) endpoint. It returns the original configuration, every raw response, and the final variables after parsing is applied.
 
 ## Chaining Requests
 
