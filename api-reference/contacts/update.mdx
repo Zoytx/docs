@@ -1,0 +1,65 @@
+---
+title: "Update a Contact"
+api: "PUT /api/contacts/{id}"
+description: "Update the details of a specific contact by its ID."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the contact you want to update.
+</ParamField>
+
+### Body
+
+<ParamField body="contact_name" type="string">
+  The new name for the contact.
+</ParamField>
+
+<ParamField body="contact_email" type="string">
+  The new email address for the contact.
+</ParamField>
+
+<ParamField body="contact_number" type="string[]">
+  A new array of phone numbers. This will replace the existing array.
+</ParamField>
+
+<ParamField body="tags" type="string[]">
+  A new array of tags. This will replace the existing array.
+</ParamField>
+
+<RequestExample>
+```json
+{
+  "contact_name": "John A. Doe",
+  "tags": [
+    "tag1",
+    "updated_tag"
+  ]
+}
+```
+</RequestExample>
+
+### Response
+
+Returns the status.
+
+<ResponseExample>
+```json Response
+{
+    "responseCode":2000,
+    "message":"Contact updated successfully",
+    "data":{}
+}
+```
+</ResponseExample>

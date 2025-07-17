@@ -1,0 +1,72 @@
+---
+title: 'Get Twilio Address'
+api: 'GET /api/callers/get-twilio-address'
+description: 'Fetch addresses associated with a specific Twilio Regulatory Bundle.'
+---
+    
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Query Parameters
+
+<ParamField query="bundleSid" type="string" required>
+  The unique SID of the Regulatory Bundle (e.g., `BUxxxxxxxx...`) for which to retrieve addresses.
+</ParamField>
+
+<ParamField query="isoCountry" type="string" required>
+  The 2-letter ISO 3166-1 alpha-2 country code of the address. For example, `US`.
+</ParamField>
+
+<RequestExample>
+  ```bash cURL 
+  curl --request GET \ 
+  --url '/api/callers/get-twilio-address?bundleSid=BU...&isoCountry=US' \ 
+  --header 'Authorization: Bearer YOUR_API_KEY' 
+  ```
+</RequestExample>
+
+### Response
+
+Returns an array of available Twilio Regulatory Bundles.
+
+<ResponseField name="message" type="string">
+    Status of the request in the form of a short message.
+</ResponseField>
+
+<ResponseField name="data" type="object[]">
+    An array of bundle objects.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Twilio address fetched successfully",
+    "data": {
+        "accountSid": "***",
+        "city": "Rochford",
+        "customerName": "",
+        "dateCreated": "2025-01-23T08:51:00.000Z",
+        "dateUpdated": "2025-01-24T01:04:25.000Z",
+        "friendlyName": "",
+        "isoCountry": "GB",
+        "postalCode": "SS4 1AJ",
+        "region": "Essex",
+        "sid": "***",
+        "street": "16 West Street",
+        "uri": "***",
+        "emergencyEnabled": false,
+        "validated": true,
+        "verified": false,
+        "streetSecondary": "Rochford"
+    }
+}
+```
+</ResponseExample>

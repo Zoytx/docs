@@ -1,0 +1,50 @@
+---
+title: "Buy a phone number"
+api: "POST /api/callers/buy-phone-number"
+description: "Buy a phone number to call from"
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+The request body must contain a `phone_number`.
+
+<ParamField body="phone_number" type="string" required>
+  The phone number to be bought.
+</ParamField>
+
+<ParamField body="address_sid" type="string">
+  The geographical prefix for the number to be bought. This can be fetched from the GetTwilioAddress api (only in the case of UK number)
+</ParamField>
+
+<ParamField body="bundle_sid" type="string">
+  The bundle sid that can be fetched from GetTwilioBundle api (only in the case of UK number)
+</ParamField>
+
+### Request Example
+
+```json
+{
+    "phone_number": "+17123123123",
+    "address_sid": "",
+    "bundle_sid": ""
+}
+```
+### Response
+
+<ResponseField name="message" type="string"> 
+    Status of the request in the form of a short message.
+</ResponseField> 
+
+<ResponseField name="data" type="object[]"> 
+    Information related to the phone number returned 
+</ResponseField>

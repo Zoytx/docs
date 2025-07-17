@@ -1,0 +1,65 @@
+---
+title: "Get Twilio Bundle"
+api: "GET /api/callers/get-twilio-bundle"
+description: "Fetch available Twilio Regulatory Bundles for a specific country."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Query Parameters
+
+<ParamField query="isoCountry" type="string" required>
+  The 2-letter ISO 3166-1 alpha-2 country code. For example, `US` for the United
+  States or `CA` for Canada.
+</ParamField>
+
+<RequestExample>
+  ```bash cURL 
+  curl --request GET \ 
+  --url '/api/callers/get-twilio-bundle?isoCountry=US' \ 
+  --header 'Authorization: Bearer YOUR_API_KEY' 
+  ```
+</RequestExample>
+
+### Response
+
+Returns an array of available Twilio Regulatory Bundles.
+
+<ResponseField name="message" type="string">
+    Status of the request in the form of a short message.
+</ResponseField>
+
+<ResponseField name="data" type="object[]">
+    An array of bundle objects.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Twilio bundle fetched successfully",
+    "data": {
+        "sid": "***",
+        "accountSid": "***",
+        "regulationSid": "***",
+        "friendlyName": "Malakai",
+        "status": "twilio-approved",
+        "validUntil": null,
+        "email": "***",
+        "statusCallback": null,
+        "dateCreated": "2025-01-23T08:48:22.000Z",
+        "dateUpdated": "2025-01-24T14:55:53.000Z",
+        "url": "****",
+        "links": {***}
+    }
+}
+```
+</ResponseExample>

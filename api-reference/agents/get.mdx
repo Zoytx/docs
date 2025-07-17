@@ -1,0 +1,66 @@
+---
+title: 'Get All Agents'
+api: 'GET /api/agents/user'
+description: 'Retrieve a list of all existing agents.'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object[]">
+    An array containing all agent objects.
+</ResponseField>
+
+<ResponseField name="data[].id" type="string">
+    The unique identifier for the agent.
+</ResponseField>
+
+<ResponseField name="data[].agent_name" type="string">
+   The full name of the agent.
+</ResponseField>
+
+<ResponseField name="data[].voice_id" type="string">
+   The voice that the agent will use.
+</ResponseField>
+
+<ResponseField name="data[].language" type="string">
+   The language in which the agent will speak
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Agents fetched successfully",
+    "data": [
+        {
+            "id": "***",
+            "agent_name": "Andrew Hamilton",
+            "voice_id": "***",
+            "language": "***",
+            "template_id": null,
+            "conversation": null,
+            "user_id": "***",
+            "opening_message": "Thank you for calling. How can I assist you today?",
+            "qualification_scenario": "The caller needs to be transferred to the appropriate department based on their request.",
+            "goals": "Determine which department the caller needs to be transferred to and complete the transfer efficiently.",
+            "background": "The agent should be familiar with the different departments and their responsibilities in order to direct the caller to the right place.",
+            "example_scenario": "Agent: Thank you for calling. How can I assist you today? Caller: I need to speak with someone in the sales department. Agent: Okay, let me transfer you to our sales department. One moment please. [Transfer to sales department]",
+            "img_url": "",
+            "negative_prompt": "none",
+            "created_at": "***",
+            "updated_at": "***"
+        }
+    ]
+}
+```
+</ResponseExample>

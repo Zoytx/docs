@@ -1,0 +1,96 @@
+---
+title: "Create a Contact"
+api: "POST /api/contacts"
+description: "Create one or more new contacts in your address book."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+The request body must contain a `contacts` array, where each object represents a contact to be created.
+
+<ParamField body="contacts" type="object[]" required>
+  An array of contact objects to be created.
+</ParamField>
+
+<ParamField body="contacts[].contact_name" type="string" required>
+  Full name of the contact.
+</ParamField>
+
+<ParamField body="contacts[].contact_email" type="string" required>
+  Primary and unique email address for the contact.
+</ParamField>
+
+<ParamField body="contacts[].contact_number" type="string[]" required>
+  Array of phone numbers linked to the contact.
+</ParamField>
+
+<ParamField body="contacts[].tags" type="string[]">
+  Optional tags to organize the contact.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "contacts": [
+    {
+      "contact_name": "John Doe",
+      "contact_email": "john.doe@example.com",
+      "contact_number": [
+        "1234567890",
+        "0987654321"
+      ],
+      "tags": [
+        "tag1",
+        "tag2"
+      ]
+    }
+  ]
+}
+```
+### Response
+
+<ResponseField name="message" type="string"> 
+    Status of the request in the form of a short message.
+</ResponseField> 
+
+<ResponseField name="data" type="object[]"> 
+    List of the created contact objects, each including a unique `id`. 
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Contacts processing completed",
+    "data": {
+        "saved": [],
+        "updated": [
+            {
+                "id": "d9f3733d-1854-4e3a-9c2c-270469d90abc",
+                "user_id": "7xd2312345",
+                "contact_name": "John Doe",
+                "contact_number": [
+                    "+921234567891"
+                ],
+                "contact_email": "johndoe332@gmail.com",
+                "tags": [],
+                "created_at": "2024-11-21T10:50:10.843Z",
+                "updated_at": "2025-07-17T07:29:18.368Z"
+            }
+        ]
+    }
+}
+
+```
+</ResponseExample>

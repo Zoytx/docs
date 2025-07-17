@@ -1,0 +1,67 @@
+---
+title: 'Get All Contacts'
+api: 'GET /api/contacts'
+description: 'Retrieve a list of all existing contacts.'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object[]">
+    An array containing all contact objects.
+</ResponseField>
+
+<ResponseField name="data[].id" type="string">
+    The unique identifier for the contact.
+</ResponseField>
+
+<ResponseField name="data[].contact_name" type="string">
+   The full name of the contact.
+</ResponseField>
+
+<ResponseField name="data[].contact_email" type="string">
+   The primary email address for the contact.
+</ResponseField>
+
+<ResponseField name="data[].contact_number" type="string[]">
+   An array of phone numbers for the contact.
+</ResponseField>
+
+<ResponseField name="data[].tags" type="string[]">
+   An array of tags associated with the contact.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Contacts fetched successfully",
+    "data": [
+        {
+            "id": "90d28d8d-3173-4434-8a32-bd2622131234",
+            "user_id": "7xd23pd123",
+            "contact_name": "",
+            "contact_number": [
+                "+12123123123"
+            ],
+            "contact_email": "",
+            "tags": [
+                "tag1",
+                "tag2"
+            ],
+            "created_at": "2024-10-29T10:26:24.291Z",
+            "updated_at": "2024-10-29T15:56:34.039Z"
+        },
+    ]
+}
+```
+</ResponseExample>

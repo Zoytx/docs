@@ -1,0 +1,112 @@
+---
+title: "Update User Agent"
+api: "PUT /api/agents/user/{id}"
+description: "Update the properties of an existing AI agent by its ID."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the agent you want to update.
+</ParamField>
+
+### Body
+
+This endpoint accepts `multipart/form-data`. Send only the fields you wish to update.
+
+<ParamField body="agent_name" type="string">
+  The new name for the agent.
+</ParamField>
+
+<ParamField body="voice_id" type="string">
+  The ID of a new voice model for the agent.
+</ParamField>
+
+<ParamField body="language" type="string">
+  Update the primary language for the agent's conversation.
+</ParamField>
+
+<ParamField body="conversation" type="string">
+  Update the prompt or script defining the agent's conversational flow.
+</ParamField>
+
+<ParamField body="template_id" type="string">
+  Update the agent to use a different pre-configured template.
+</ParamField>
+
+<ParamField body="opening_message" type="string">
+  Change the initial message the agent uses to start a conversation.
+</ParamField>
+
+<ParamField body="qualification_scenario" type="string">
+  Update the prompt defining how the agent should qualify leads.
+</ParamField>
+
+<ParamField body="goals" type="string">
+  Update the description of the objectives or goals for the agent.
+</ParamField>
+
+<ParamField body="background" type="string">
+  Modify the background information or context for the agent.
+</ParamField>
+
+<ParamField body="example_scenario" type="string">
+  Provide a new example conversation or scenario to guide the agent.
+</ParamField>
+
+<ParamField body="img_url" type="file">
+  Upload a new avatar image file for the agent.
+</ParamField>
+
+<ParamField body="negative_prompt" type="string">
+  Update the instructions on what the agent should avoid.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request PUT \
+  --url '/api/agents/user/agent_1a2b3c4d5e' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: multipart/form-data' \
+  -F 'agent_name="Sales Pro Agent"' \
+  -F 'goals="Schedule demos with qualified leads."'
+```
+
+</RequestExample>
+
+### Response
+
+On success, the response will contain the complete, updated agent object.
+
+<ResponseField name="status" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message, e.g., "Agent updated successfully".
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the full, updated details of the agent.
+</ResponseField>
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "message": "Agent updated successfully",
+  "data": {
+    "agent_id": "***",
+    "agent_name": "Sales Pro Agent",
+    "voice_id": "***",
+    "language": "en-US",
+    "goals": "Schedule demos with qualified leads.",
+    "img_url": "***",
+    "updated_at": "2024-11-12T10:30:00.000Z"
+  }
+}
+```
+</ResponseExample>

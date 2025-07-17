@@ -1,0 +1,116 @@
+---
+title: 'Create User Agent'
+api: 'POST /api/agents/user'
+description: 'Create and configure a new AI agent for a user.'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+### Body
+
+This endpoint accepts `multipart/form-data`.
+
+<ParamField body="agent_name" type="string" required>
+  The name for the new agent.
+</ParamField>
+
+<ParamField body="voice_id" type="string" required>
+  The ID of the voice model the agent will use.
+</ParamField>
+
+<ParamField body="language" type="string">
+  The primary language for the agent's conversation (e.g., 'en-US').
+</ParamField>
+
+<ParamField body="conversation" type="string">
+  A prompt or script defining the agent's conversational flow or personality.
+</ParamField>
+
+<ParamField body="template_id" type="string">
+  An optional ID of a pre-configured agent template to use as a base.
+</ParamField>
+
+<ParamField body="opening_message" type="string">
+  The initial message the agent will use to start a conversation.
+</ParamField>
+
+<ParamField body="qualification_scenario" type="string">
+  A prompt defining how the agent should qualify leads or handle specific scenarios.
+</ParamField>
+
+<ParamField body="goals" type="string">
+  A description of the objectives or goals the agent should aim to achieve.
+</ParamField>
+
+<ParamField body="background" type="string">
+  Background information or context for the agent (e.g., company info, product details).
+</ParamField>
+
+<ParamField body="example_scenario" type="string">
+  An example conversation or scenario to guide the agent's behavior and tone.
+</ParamField>
+
+<ParamField body="img_url" type="file">
+  The agent's avatar image file. This should be sent as a binary file.
+</ParamField>
+
+<ParamField body="negative_prompt" type="string">
+  Instructions on what the agent should avoid saying or doing.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request POST \
+  --url '/api/agents/user' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: multipart/form-data' \
+  -F 'agent_name="Support Agent"' \
+  -F 'voice_id="voice_xyz789"' \
+  -F 'language="en-US"' \
+  -F 'goals="Resolve customer support tickets."' \
+  -F 'img_url=@/path/to/your/avatar.png'
+```
+</RequestExample>
+
+### Response
+
+On success, the response will contain the details of the newly created agent, including its unique ID.
+<ResponseField name="status" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message about the request's outcome.
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the details of the newly created agent.
+</ResponseField>
+<ResponseField name="data.agent_id" type="string">
+  The unique identifier for the newly created agent.
+</ResponseField>
+<ResponseField name="data.agent_name" type="string">
+  The name assigned to the agent.
+</ResponseField>
+<ResponseField name="data.img_url" type="string">
+  The URL where the uploaded agent avatar can be accessed.
+</ResponseField>
+<ResponseExample>
+```json Response
+{
+  "status": "success",
+  "message": "Agent created successfully",
+  "data": {
+    "agent_id": "agent_*****",
+    "agent_name": "Support Agent",
+    "voice_id": "voice_xyz789",
+    "language": "en-US",
+    "goals": "Resolve customer support tickets.",
+    "img_url": "https://your-cdn.com/agents/avatar-*****.png",
+    "created_at": "2024-11-11T14:01:08.087Z"
+  }
+}
+```
+</ResponseExample>

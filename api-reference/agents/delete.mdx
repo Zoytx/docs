@@ -1,0 +1,42 @@
+---
+title: "Delete a agent"
+api: "DELETE /api/agents/user/{id}"
+description: "Permanently delete a specific agent by its ID."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the agent you want to delete.
+</ParamField>
+
+### Response
+
+A successful deletion will return a success status and message.
+
+<ResponseField name="status" type="string">
+  Confirms the request was successful.
+</ResponseField>
+
+<ResponseField name="message" type="string">
+  A message indicating the result of the deletion.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "responseCode": "2000",
+  "message": "Agent deleted successfully."
+}
+```
+</ResponseExample>
