@@ -1,0 +1,66 @@
+---
+title: 'Get All Knowlegde Bases'
+api: 'GET /api/knowledgebase'
+description: 'Retrieve a list of all existing knowledge bases'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object[]">
+    An array containing all knowledgebase objects.
+</ResponseField>
+
+<ResponseField name="data[].id" type="string">
+    The unique identifier for the knowledgebase.
+</ResponseField>
+
+<ResponseField name="data[].name" type="string">
+   The name of the knowledgebase.
+</ResponseField>
+
+<ResponseField name="data[].files" type="string">
+   The files url links that will be used inside the knowledgebase.
+</ResponseField>
+
+<ResponseField name="data[].status" type="string[]">
+   The status defining whether the knowledgebase has been processed or not.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Knowledgebases fetched successfully",
+    "data": [
+        {
+            "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            "name": "DemoVideo",
+            "description": "This is my demo video KB",
+            "files": [
+                "https://malakai-embeddings.s3.us-east-1.amazonaws.com/files/sample1.pdf",
+                "https://malakai-embeddings.s3.us-east-1.amazonaws.com/files/sample2.pdf"
+            ],
+            "urls": [
+                "http://example.com",
+                "https://example.com"
+            ],
+            "status": "completed",
+            "ml_file_id": "xxxxxxx.zip",
+            "user_id": "xxxxxxxxxx",
+            "createdAt": "2025-07-14T11:44:47.794Z",
+            "updatedAt": "2025-07-14T11:44:59.878Z"
+        }
+    ]
+}
+```
+</ResponseExample>

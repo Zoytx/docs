@@ -1,0 +1,85 @@
+---
+title: "Test a Workflow"
+api: "POST /api/workflows/test/{workflow_id}"
+description: "Test a workflow through an agent"
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="workflow_id" type="string" required>
+  The id of the workflow to test.
+</ParamField>
+
+<ParamField body="name" type="string" required>
+  The name of the person to be called
+</ParamField>
+
+<ParamField body="agent_id" type="string" required>
+  The id of the agent that is being used to follow the workflow 
+</ParamField>
+
+<ParamField body="email" type="string">
+  The email of the person to be called
+</ParamField>
+
+<ParamField body="to" type="string" required>
+  The number of the person to be called (with country extensions)
+</ParamField>
+
+<ParamField body="from" type="string" required>
+  The number which the agent will use to call from (with country extensions)
+</ParamField>
+
+
+### Response
+
+<ResponseField name="responseCode" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message about the request's outcome.
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the details of the updated workflow.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Workflow tested successfully",
+    "data": {
+        "response": {
+            "status": "Campaign Started",
+            "campaign_id": "********-****-****-****-************",
+            "users_data": [
+                {
+                    "campaign_id": "********-****-****-****-************",
+                    "session_id": "********-****-****-****-************",
+                    "name": "john",
+                    "number": "+XXXXXXXXXXXX",
+                    "lang": "English (UK)",
+                    "email": "",
+                    "address": "Temp Address",
+                    "contact_id": null,
+                    "twilio_number": "+XXXXXXXXXXX",
+                    "custom_data": {
+                        "age": 19
+                    }
+                }
+            ]
+        }
+    }
+}
+```
+</ResponseExample>

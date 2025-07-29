@@ -1,0 +1,79 @@
+---
+title: "Create a Knowledge Base"
+api: "POST /api/knowledgebase"
+description: "Create a knowledgebase from multiple files to use in your workflows"
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="name" type="string" required>
+  The name of the knowledgebase to be created.
+</ParamField>
+
+<ParamField body="description" type="string" required>
+  The description of the knowledgebase to be created.
+</ParamField>
+
+<ParamField body="files" type="string[]" required>
+  An array of file urls that contain the information to be used in the knowledgebase
+</ParamField>
+
+<ParamField body="urls" type="string[]" required>
+  Array of web urls that have content to be used in the knowledgebase.
+</ParamField>
+
+
+### Request Example
+
+```json
+{
+    "name": "test",
+    "description": "description",
+    "files": [],
+    "urls": [
+        "https://en.wikipedia.org/wiki/aboutWiki"
+    ]
+}
+```
+### Response
+
+<ResponseField name="message" type="string"> 
+    Status of the request in the form of a short message.
+</ResponseField> 
+
+<ResponseField name="data" type="object"> 
+     Object containing the created knowledgebase.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "responseCode": 2000,
+  "message": "Knowledgebase created successfully",
+  "data": {
+    "name": "test",
+    "description": "description",
+    "files": [],
+    "urls": [
+      "https://en.wikipedia.org/wiki/Pakistan"
+    ],
+    "user_id": "<hidden>",
+    "ml_file_id": null,
+    "id": "<hidden>",
+    "status": "pending",
+    "createdAt": "2025-07-29T10:44:05.242Z",
+    "updatedAt": "2025-07-29T10:44:05.242Z"
+  }
+}
+```
+</ResponseExample>

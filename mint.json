@@ -64,6 +64,35 @@
       ]
     },
     {
+      "group": "Voices",
+      "pages": [
+        "api-reference/voices/get",
+        "api-reference/voices/create",
+        "api-reference/voices/getCustom",
+        "api-reference/voices/delete"
+      ]
+    },
+    {
+      "group": "Knowledge Bases",
+      "pages": [
+        "api-reference/knowlegdeBase/get",
+        "api-reference/knowlegdeBase/create",
+        "api-reference/knowlegdeBase/delete"
+      ]
+    },
+    {
+      "group": "Workflows",
+      "pages": [
+        "api-reference/workflows/get",
+        "api-reference/workflows/create",
+        "api-reference/workflows/update",
+        "api-reference/workflows/duplicate",
+        "api-reference/workflows/generate",
+        "api-reference/workflows/getLogs",
+        "api-reference/workflows/delete"
+      ]
+    },
+    {
       "group": "Campaigns",
       "pages": [
         "api-reference/pathways/getAll",

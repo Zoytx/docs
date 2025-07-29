@@ -1,0 +1,89 @@
+---
+title: "Update a Workflow"
+api: "POST /api/workflows/create-or-update"
+description: "Initiate the update of an existing workflow by providing details."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="id" type="string" required>
+  The id of the existing workflow to be updated.
+</ParamField>
+
+<ParamField body="name" type="string" required>
+  The name for the existing workflow.
+</ParamField>
+
+<ParamField body="description" type="string" required>
+  The description for the existing workflow.
+</ParamField>
+
+<ParamField body="nodes" type="object[]">
+  An array of objects containing all of the nodes.
+</ParamField>
+
+<ParamField body="edges" type="object[]">
+  An array of objects containing all of the edges.
+</ParamField>
+
+<ParamField body="ml_payload" type="object[]">
+  An array of objects containing all of the nodes and edges in a specific
+  format.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request POST \
+  --url '/api/workflows/create-or-update' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  -F 'name="Sample"' \
+  -F 'description="sample description"' \
+  -F 'nodes=[]' \
+  -F 'edges=[]' \
+  -F 'ml_payload=[]' \
+```
+</RequestExample>
+
+### Response
+
+<ResponseField name="responseCode" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message about the request's outcome.
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the details of the updated workflow.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Workflow created/updated successfully",
+    "data": {
+        "workflow": {
+            "name": null,
+            "description": null,
+            "nodes": null,
+            "edges": null,
+            "ml_payload": null,
+            "user_id": "**",
+            "id": "c392dd0e-6d8c-43b6-aefd-***",
+            "created_at": "2025-07-29T09:11:00.661Z",
+            "updated_at": "2025-07-29T09:11:00.661Z"
+        }
+    }
+}
+```
+</ResponseExample>

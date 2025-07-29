@@ -1,0 +1,55 @@
+---
+title: 'Clone custom voice'
+api: 'POST /api/agent-voices/clone'
+description: 'Create '
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+This endpoint accepts `multipart/form-data`.
+
+<ParamField body="name" type="string" required>
+  The name for the new agent's voice.
+</ParamField>
+
+<ParamField body="description" type="string" required>
+  The description for the new agent's voice.
+</ParamField>
+
+<ParamField body="file" type="file">
+  The audio file which hold a sample audio to clone from.
+</ParamField>
+
+<RequestExample>
+```bash cURL
+curl --request POST \
+  --url '/api/agent-voices/clone' \
+  --header 'Authorization: Bearer YOUR_API_KEY' \
+  --header 'Content-Type: multipart/form-data' \
+  -F 'name="Sample"' \
+  -F 'description="sample description"' \
+  -F 'file=(binary)' \
+```
+</RequestExample>
+
+### Response
+
+<ResponseField name="status" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message about the request's outcome.
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the details of the newly created agent voice.
+</ResponseField>

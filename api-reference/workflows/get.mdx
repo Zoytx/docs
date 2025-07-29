@@ -1,0 +1,49 @@
+---
+title: 'Get All Workflows'
+api: 'GET /api/workflows'
+description: 'Retrieve a list of all existing workflows.'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object">
+    An object containing the value of all the workflows as values.
+</ResponseField>
+
+<ResponseField name="data.workflows" type="[]">
+    An array containing all the workflows in the system
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "responseCode": 2000,
+  "message": "Workflows fetched successfully",
+  "data": {
+    "workflows": [
+      {
+        "id": "a4835860-**",
+        "name": "SimpleTesting",
+        "description": "A new workflow for you agent",
+        "user_id": "**",
+        "nodes": [],
+        "edges": [],
+        "ml_payload": [],
+        "created_at": "2025-02-04T14:14:33.043Z",
+        "updated_at": "2025-07-08T10:03:06.313Z"
+      }
+    ]
+  }
+}
+```
+</ResponseExample>

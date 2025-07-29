@@ -1,0 +1,39 @@
+---
+title: "Generate a Workflow"
+api: "POST /api/workflows/generate"
+description: "Create an entire workflow from a simple prompt"
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="prompt" type="string" required>
+  The prompt explaining the usecase or what the user wants the workflow to do.
+</ParamField>
+
+### Response
+
+<ResponseField name="responseCode" type="string">
+  Confirms the request was successful.
+</ResponseField>
+<ResponseField name="message" type="string">
+  A human-readable message about the request's outcome.
+</ResponseField>
+<ResponseField name="data" type="object">
+  An object containing the details of the workflow.
+</ResponseField>
+<ResponseField name="data.nodes" type="object[]">
+  An array containing the details of the nodes in the workflow.
+</ResponseField>
+<ResponseField name="data.edges" type="object[]">
+  An array containing the details of theedges in the workflow.
+</ResponseField>
