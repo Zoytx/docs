@@ -1,0 +1,90 @@
+---
+title: "Create an Inbound Campaign"
+api: "POST /api/campaigns/inbound"
+description: "Create a new inbound campaign from scratch"
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Body
+
+<ParamField body="campaign_name" type="string" required>
+  The name of the campaign to be created (e.g., "Demo Campaign").
+</ParamField>
+
+<ParamField body="agent_id" type="string" required>
+  The ID of the agent associated with the campaign (e.g.,
+  "25e57eca-5582-4ba7-849c-xxxx").
+</ParamField>
+
+<ParamField body="workflow_id" type="string" required>
+  The workflow ID linked to the campaign (e.g., "291069c3-d653-479c-97f9-xxxx").
+</ParamField>
+
+<ParamField body="transfer_numbers" type="object" optional>
+  Key-value pairs of labels and phone numbers for call transfers.
+</ParamField>
+
+<ParamField body="webhooks" type="object" optional>
+  Webhook configurations for the campaign; null if not set.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "campaign_name": "demo_campaign",
+  "agent_id": "AGENT_ID_HERE",
+  "workflow_id": "WORKFLOW_ID_HERE",
+  "max_duration": 300,
+  "schema_analysis": ["did the human answer?"],
+  "model": "Claude 3 Haiku",
+  "transfer_numbers": {
+    "test": "PHONE_NUMBER_HERE"
+  },
+  "webhooks": [],
+  "contacts": ["CONTACT_ID_HERE"],
+  "dialers": ["DIALER_ID_HERE"]
+}
+```
+
+### Response
+
+<ResponseField name="message" type="string">
+  Status of the request in the form of a short message.
+</ResponseField>{" "}
+
+<ResponseField name="data" type="object[]">
+  List of the created campaign objects, each including a unique `id`.
+</ResponseField>
+
+<ResponseExample>
+```json Response
+{
+  "responseCode": 2000,
+  "message": "Campaign created successfully",
+  "data": {
+    "campaign_name": "Demo Campaign",
+    "agent_id": "25e57eca-5582-4ba7-849c-1234",
+    "webhooks": [
+      "https://example.com/webhook"
+    ],
+    "transfer_numbers": {
+      "Support": "+1234567890",
+      "Sales": "+0987654321"
+    },
+    "phone_number": "+1122334455",
+    "model": "Claude 3 Haiku",
+    "workflow_id": "291069c3-d653-479c-97f9-5678"
+  }
+}
+```
+</ResponseExample>

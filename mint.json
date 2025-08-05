@@ -95,14 +95,26 @@
     {
       "group": "Campaigns",
       "pages": [
-        "api-reference/pathways/getAll",
-        {
-          "group": "Inbound",
-          "pages": ["api-reference/campaigns/inbound/"]
-        },
         {
           "group": "Outbound",
-          "pages": ["api-reference/campaigns/outbound/"]
+          "pages": [
+            "api-reference/campaigns/outbound/get", 
+            "api-reference/campaigns/outbound/getSingle",
+            "api-reference/campaigns/outbound/create",
+            "api-reference/campaigns/outbound/launch",
+            "api-reference/campaigns/outbound/update",
+            "api-reference/campaigns/outbound/delete"
+          ]
+        },
+        {
+          "group": "Inbound",
+          "pages": [
+            "api-reference/campaigns/inbound/create",
+            "api-reference/campaigns/inbound/get",
+            "api-reference/campaigns/inbound/delete",
+            "api-reference/campaigns/inbound/getSingle",
+            "api-reference/campaigns/inbound/update"
+        ]
         }
       ]
     }

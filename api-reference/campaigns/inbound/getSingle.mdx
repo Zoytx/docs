@@ -1,0 +1,198 @@
+---
+title: 'Get Inbound Campaign logs'
+api: 'GET /api/campaigns/outbound/logs/{id}'
+description: 'Retrieve a list of all existing campaigns'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object">
+   The main response object containing analytics and logs.
+</ResponseField>
+
+<ResponseField name="data.analytics" type="object">
+   An object containing overall analytics for the campaign logs.
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Contacts" type="number">
+   Total number of contacts involved in the campaign.
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Conversations" type="number">
+   Total number of conversations in the campaign.
+</ResponseField>
+
+<ResponseField name="data.logs" type="object[]">
+   Array of log objects for each contact in the campaign.
+</ResponseField>
+
+<ResponseField name="data.logs.from" type="string">
+   The sender's identifier or phone number.
+</ResponseField>
+
+<ResponseField name="data.logs.number" type="string">
+   The recipient's phone number.
+</ResponseField>
+
+<ResponseField name="data.logs.status" type="string">
+   Status of the campaign log (e.g., completed).
+</ResponseField>
+
+<ResponseField name="data.logs.call_sid" type="string">
+   Identifier for the call session.
+</ResponseField>
+
+<ResponseField name="data.logs.sentiment" type="string">
+   Sentiment analysis result for the call.
+</ResponseField>
+
+<ResponseField name="data.logs.inbound_id" type="string">
+   Identifier for the inbound campaign.
+</ResponseField>
+
+<ResponseField name="data.logs.session_id" type="string">
+   Identifier for the session.
+</ResponseField>
+
+<ResponseField name="data.logs.call_summary" type="string">
+   Summary of the call conversation.
+</ResponseField>
+
+<ResponseField name="data.logs.call_duration" type="number">
+   Duration of the call in seconds.
+</ResponseField>
+
+<ResponseField name="data.logs.goal_achieved" type="string">
+   Indicates if the campaign goal was achieved ("yes" or "no").
+</ResponseField>
+
+<ResponseField name="data.logs.transcript" type="object">
+   Object containing the transcript and recording URL.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation" type="object[]">
+   Array of conversation objects with role and content.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation.role" type="string">
+   Role in the conversation (user or assistant).
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation.content" type="string">
+   Content of the conversation message.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.recording_url" type="string">
+   URL to the transcript audio file.
+</ResponseField>
+
+
+
+<ResponseExample>
+```json Response
+{
+   "responseCode": 2000,
+   "message": "Inbound campaign logs fetched successfully",
+   "data": {
+      "analytics": {
+         "Total Contacts": 2,
+         "Total Conversations": 113
+      },
+      "logs": [
+         {
+            "from": "DUMMY_FROM",
+            "number": "DUMMY_NUMBER",
+            "status": "completed",
+            "call_sid": "DUMMY_CALL_SID",
+            "sentiment": "neutral",
+            "inbound_id": "DUMMY_INBOUND_ID",
+            "session_id": "DUMMY_SESSION_ID",
+            "call_summary": "The user asked about the services the company provides. The assistant acknowledged that they do not have information about the specific services, but offered to transfer the call to the customer service department to assist the user with their inquiry.",
+            "call_duration": 27.71903395652771,
+            "goal_achieved": "yes",
+            "transcript": {
+               "conversation": [
+                  {
+                     "role": "user",
+                     "content": "---"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "Thank you for calling. How can I assist you today?"
+                  },
+                  {
+                     "role": "user",
+                     "content": " Hey. What services you can provide me?"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "I'm afraid I don't have information about the specific services we offer. However, I can transfer your call to our customer service department who would be happy to assist you with your inquiry. REDIRECT_customer_service"
+                  }
+               ],
+               "recording_url": "https://dummy-audio-files.com/recording1.mp3"
+            }
+         },
+         {
+            "from": "+1234567890",
+            "number": "+10987654321",
+            "status": "completed",
+            "call_sid": "DUMMY_CALL_SID_2",
+            "sentiment": "positive",
+            "inbound_id": "DUMMY_INBOUND_ID_2",
+            "session_id": "DUMMY_SESSION_ID_2",
+            "call_summary": "The user initially had some technical issues with the call, but was able to clearly communicate their request to purchase a house. The assistant recognized this request and transferred the call to the sales department as per the instructions.",
+            "call_duration": 86.25287747383118,
+            "goal_achieved": "yes",
+            "transcript": {
+               "conversation": [
+                  {
+                     "role": "user",
+                     "content": "---"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "Thank you for calling. How can I assist you today?"
+                  },
+                  {
+                     "role": "user",
+                     "content": " Hello? Hello?"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "I'm sorry, I didn't hear anything from you. Could you please restate your request so I can try to assist you?"
+                  },
+                  {
+                     "role": "user",
+                     "content": " What services are you providing?"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "We offer a variety of services to our customers. How may I best assist you today? If you have a specific inquiry, I'd be happy to try to help or direct you to the appropriate department."
+                  },
+                  {
+                     "role": "user",
+                     "content": " I want to buy a house. I want to buy a house."
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "Okay, let me transfer you to our sales department who can assist you with purchasing a house. One moment please. REDIRECT_Sales"
+                  }
+               ],
+               "recording_url": "https://dummy-audio-files.com/recording2.mp3"
+            }
+         }
+      ]
+   }
+}
+```
+</ResponseExample>

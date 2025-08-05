@@ -1,0 +1,28 @@
+---
+title: "Launch a Campaign"
+api: "PUT /api/campaigns/outbound/launch/{id}"
+description: "Launch your created campaign to actually run it."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the campaign to launch.
+</ParamField>
+
+
+### Responses
+
+<ResponseField name="status" type="string">
+  Launch a campaign.
+</ResponseField>

@@ -1,0 +1,34 @@
+---
+title: "Update Campaign Action"
+api: "PUT /api/campaigns/outbound/action/{id}"
+description: "Pause, resume, or stop a running outbound campaign by its ID."
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Path Parameters
+
+<ParamField path="id" type="string" required>
+  The unique identifier of the campaign to update.
+</ParamField>
+
+### Body
+
+<ParamField body="action" type="string" required>
+  Action to perform on the campaign. Valid values: `"pause"`, `"resume"`, `"stop"`.
+</ParamField>
+
+### Request Example
+
+```json
+{
+  "action": "pause"
+}

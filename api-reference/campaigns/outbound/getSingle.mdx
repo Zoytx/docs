@@ -1,0 +1,231 @@
+---
+title: 'Get Campaign logs'
+api: 'GET /api/campaigns/outbound/logs/{id}'
+description: 'Retrieve a list of all existing campaigns'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object">
+   The main response object containing analytics and logs.
+</ResponseField>
+
+<ResponseField name="data.analytics" type="object">
+   An object containing overall analytics for the campaign logs.
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Contacts" type="number">
+   Total number of contacts involved in the campaign.
+</ResponseField>
+
+<ResponseField name="data.analytics.Completion" type="number">
+   Percentage of completion for the campaign.
+</ResponseField>
+
+<ResponseField name="data.analytics.Answered" type="number">
+   Number of answered calls.
+</ResponseField>
+
+<ResponseField name="data.analytics.Not Answered" type="number">
+   Number of calls not answered.
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Conversations" type="number">
+   Total number of conversations in the campaign.
+</ResponseField>
+
+<ResponseField name="data.logs" type="object[]">
+   Array of log objects for each contact in the campaign.
+</ResponseField>
+
+<ResponseField name="data.logs.id" type="string">
+   Unique identifier for the log entry.
+</ResponseField>
+
+<ResponseField name="data.logs.user_id" type="string">
+   User identifier associated with the log.
+</ResponseField>
+
+<ResponseField name="data.logs.contact_name" type="string">
+   Name of the contact.
+</ResponseField>
+
+<ResponseField name="data.logs.contact_number" type="string[]">
+   Array of contact phone numbers.
+</ResponseField>
+
+<ResponseField name="data.logs.contact_email" type="string">
+   Email address of the contact.
+</ResponseField>
+
+<ResponseField name="data.logs.tags" type="string[]">
+   Array of tags associated with the contact.
+</ResponseField>
+
+<ResponseField name="data.logs.created_at" type="string">
+   Timestamp when the log was created (ISO format).
+</ResponseField>
+
+<ResponseField name="data.logs.updated_at" type="string">
+   Timestamp when the log was last updated (ISO format).
+</ResponseField>
+
+<ResponseField name="data.logs.name" type="string">
+   Name of the contact (duplicate of contact_name).
+</ResponseField>
+
+<ResponseField name="data.logs.email" type="string">
+   Email address of the contact (duplicate of contact_email).
+</ResponseField>
+
+<ResponseField name="data.logs.status" type="string">
+   Status of the campaign log (e.g., completed).
+</ResponseField>
+
+<ResponseField name="data.logs.address" type="string">
+   Address of the contact.
+</ResponseField>
+
+<ResponseField name="data.logs.analysis" type="string">
+   JSON string containing analysis data.
+</ResponseField>
+
+<ResponseField name="data.logs.call_sid" type="string">
+   Identifier for the call session.
+</ResponseField>
+
+<ResponseField name="data.logs.sentiment" type="string">
+   Sentiment analysis result for the call.
+</ResponseField>
+
+<ResponseField name="data.logs.contact_id" type="string">
+   Identifier for the contact.
+</ResponseField>
+
+<ResponseField name="data.logs.session_id" type="string">
+   Identifier for the session.
+</ResponseField>
+
+<ResponseField name="data.logs.call_summary" type="string">
+   Summary of the call conversation.
+</ResponseField>
+
+<ResponseField name="data.logs.call_duration" type="number">
+   Duration of the call in seconds.
+</ResponseField>
+
+<ResponseField name="data.logs.goal_achieved" type="string">
+   Indicates if the campaign goal was achieved ("yes" or "no").
+</ResponseField>
+
+<ResponseField name="data.logs.recording_url" type="string">
+   URL to the call recording.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript" type="object">
+   Object containing the transcript and recording URL.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation" type="object[]">
+   Array of conversation objects with role and content.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation.role" type="string">
+   Role in the conversation (user or assistant).
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.conversation.content" type="string">
+   Content of the conversation message.
+</ResponseField>
+
+<ResponseField name="data.logs.transcript.recording_url" type="string">
+   URL to the transcript audio file.
+</ResponseField>
+
+
+
+<ResponseExample>
+```json Response
+{
+   "responseCode": 2000,
+   "message": "Campaign logs fetched successfully",
+   "data": {
+      "analytics": {
+         "Total Contacts": 1,
+         "Completion": 100,
+         "Answered": 1,
+         "Not Answered": 0,
+         "Total Conversations": 33
+      },
+      "logs": [
+         {
+            "id": "cfebaae0-b30f-4124-a0ef-1a4ff68e1ccc",
+            "user_id": "**********",
+            "contact_name": "John Doe",
+            "contact_number": [
+               "+1234567890"
+            ],
+            "contact_email": "hidden@example.com",
+            "tags": [
+               "tag1"
+            ],
+            "created_at": "2024-11-21T10:50:47.409Z",
+            "updated_at": "2024-11-21T10:50:47.409Z",
+            "name": "John Doe",
+            "email": "hidden@example.com",
+            "status": "completed",
+            "address": "Hidden Address",
+            "analysis": "[{\"question\": \"did the human answer ?\", \"answer\": \"no\"}]",
+            "call_sid": "***********************",
+            "sentiment": "neutral",
+            "contact_id": "**********",
+            "session_id": "**********",
+            "call_summary": "The user was unable to provide any information related to the original request about speaking with a cybersecurity engineer or specialist. The conversation ended with the AI assistant politely acknowledging the user's situation and wishing them a great day.",
+            "call_duration": 33,
+            "goal_achieved": "no",
+            "recording_url": "https://api.twilio.com/2010-04-01/Accounts/AC********************/Recordings/RE********************",
+            "transcript": {
+               "conversation": [
+                  {
+                     "role": "user",
+                     "content": "---"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "Hello, this is [Your Company Name] calling to inquire about your cybersecurity personnel. Is there a cybersecurity engineer or specialist available that I could speak with?"
+                  },
+                  {
+                     "role": "user",
+                     "content": "The numbers are hidden. Please don't hang up and hold on a moment."
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "I understand. Thank you for your time, and I hope you have a great day!"
+                  },
+                  {
+                     "role": "user",
+                     "content": "ok"
+                  },
+                  {
+                     "role": "assistant",
+                     "content": "Alright, here it is: \"Goodbye!\""
+                  }
+               ],
+               "recording_url": "https://malakai-audio-files.s3.us-east-1.amazonaws.com/hidden.mp3"
+            }
+         }
+      ]
+   }
+}
+```
+</ResponseExample>

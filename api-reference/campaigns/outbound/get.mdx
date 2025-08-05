@@ -1,0 +1,159 @@
+---
+title: 'Get All Campaigns'
+api: 'GET /api/campaigns/outbound'
+description: 'Retrieve a list of all existing campaigns'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object">
+    An object containing all campaigns details.
+</ResponseField>
+
+<ResponseField name="data.analytics" type="object">
+    AN object containing the overall analytics of all the outbound campaigns related to the specific user
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Contacts" type="string">
+   Total number of contacts involved in the campaign
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Calls Made" type="string">
+   The total number of calls made for th entire campaign
+</ResponseField>
+
+<ResponseField name="data.analytics.% of Completion" type="string">
+    Percantage representing the completion of calls involved in a campaign
+</ResponseField>
+
+<ResponseField name="campaigns" type="object[]">
+   An array of objects containing details regarding a specific campaign
+</ResponseField>
+
+<ResponseField name="campaigns.id" type="string">
+   A specific identifier for a campaign
+</ResponseField>
+
+<ResponseField name="campaigns.user_id" type="string">
+   The user identifier associated with the campaign
+</ResponseField>
+
+<ResponseField name="campaigns.campaign_name" type="string">
+   The name of the campaign 
+</ResponseField>
+
+<ResponseField name="campaigns.max_duration" type="number">
+   Maximum allowed duration for the campaign (in seconds)
+</ResponseField>
+
+<ResponseField name="campaigns.agent_id" type="string">
+   The identifier for the agent attached with this campaign 
+</ResponseField>
+
+<ResponseField name="campaigns.voice_mail" type="string">
+   Voicemail configuration or content (null if not set)
+</ResponseField>
+
+<ResponseField name="campaigns.transfer_numbers" type="object">
+   A map of transfer numbers for call routing (empty if not defined)
+</ResponseField>
+
+<ResponseField name="campaigns.webhooks" type="object">
+   Webhooks configured for the campaign (null if not set)
+</ResponseField>
+
+<ResponseField name="campaigns.is_draft" type="boolean">
+   Indicates if the campaign is a draft
+</ResponseField>
+
+<ResponseField name="campaigns.ml_campaign_id" type="string">
+   Associated Identifier for the machine learning side
+</ResponseField>
+
+<ResponseField name="campaigns.status" type="string">
+   Current status of the campaign (e.g., completed, failed)
+</ResponseField>
+
+<ResponseField name="campaigns.state" type="string">
+   Internal state of the campaign (e.g., running, stopped)
+</ResponseField>
+
+<ResponseField name="campaigns.model" type="string">
+   AI model used in the campaign (e.g., Claude 3 Haiku)
+</ResponseField>
+
+<ResponseField name="campaigns.schema_analysis" type="object">
+   Contains schema analysis data if available (null if not set)
+</ResponseField>
+
+<ResponseField name="campaigns.created_at" type="string">
+   Timestamp of campaign creation (ISO format)
+</ResponseField>
+
+<ResponseField name="campaigns.updated_at" type="string">
+   Timestamp of last update to the campaign (ISO format)
+</ResponseField>
+
+<ResponseField name="campaigns.workflow_id" type="string">
+   Identifier for the associated workflow (null if not set)
+</ResponseField>
+
+<ResponseField name="campaigns.total_contacts" type="number">
+   Total number of contacts included in the campaign
+</ResponseField>
+
+<ResponseField name="campaigns.completion_percentage" type="number">
+   Completion percentage of the campaign
+</ResponseField>
+
+
+
+<ResponseExample>
+```json Response
+{
+    "responseCode": 2000,
+    "message": "Compaigns fetched successfully",
+    "data": {
+        "analytics": {
+            "Total Contacts": 42,
+            "Total Calls Made": 24,
+            "% of Completion": 57.14285714285714
+        },
+        "campaigns": [
+            {
+                "id": "***",
+                "user_id": "***",
+                "campaign_name": "Start",
+                "max_duration": 300,
+                "agent_id": "***",
+                "voice_mail": null,
+                "transfer_numbers": {},
+                "dynamic_data": null,
+                "webhooks": null,
+                "is_draft": false,
+                "ml_campaign_id": "***",
+                "status": "completed",
+                "state": "stopped",
+                "model": "Claude 3 Haiku",
+                "schema_analysis": null,
+                "created_at": "***",
+                "updated_at": "***",
+                "workflow_id": null,
+                "total_contacts": 3,
+                "completion_percentage": 33.33333333333333
+            }
+        ]
+    }
+}
+```
+</ResponseExample>

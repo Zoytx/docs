@@ -1,0 +1,164 @@
+---
+title: 'Get All Inbound Campaigns'
+api: 'GET /api/campaigns/inbound'
+description: 'Retrieve a list of all inbound existing campaigns'
+---
+
+### Headers
+
+<ParamField header="Authorization" type="string" required>
+  Your API key for authentication. Prefix with `Bearer `.
+</ParamField>
+
+<ParamField header="x-access-token" type="string" required>
+  Your access token for authentication.
+</ParamField>
+
+### Response
+
+<ResponseField name="data" type="object">
+  Contains campaign analytics and campaign details.
+</ResponseField>
+
+<ResponseField name="data.analytics.Total Calls Made" type="number">
+  Total number of inbound calls made.
+</ResponseField>
+
+<ResponseField name="campaigns" type="object[]">
+  An array of inbound campaign objects.
+</ResponseField>
+
+#### Campaign Fields
+
+<ResponseField name="campaigns.id" type="string">
+  Unique identifier for the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.user_id" type="string">
+  Identifier of the user who owns the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.campaign_name" type="string">
+  Name of the inbound campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.phone_number" type="string">
+  Associated phone number ID.
+</ResponseField>
+
+<ResponseField name="campaigns.agent_id" type="string">
+  ID of the assigned agent for the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.transfer_numbers" type="object">
+  Map of configured transfer numbers.
+</ResponseField>
+
+<ResponseField name="campaigns.ml_campaign_id" type="string">
+  ID for ML-related tracking (nullable).
+</ResponseField>
+
+<ResponseField name="campaigns.status" type="string">
+  Campaign status (nullable).
+</ResponseField>
+
+<ResponseField name="campaigns.model" type="string">
+  Name of AI model used in the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.state" type="string">
+  Current running state of the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.created_at" type="string">
+  ISO timestamp of when the campaign was created.
+</ResponseField>
+
+<ResponseField name="campaigns.updated_at" type="string">
+  ISO timestamp of the last update to the campaign.
+</ResponseField>
+
+<ResponseField name="campaigns.workflow_id" type="string">
+  ID of the associated workflow (nullable).
+</ResponseField>
+
+<ResponseField name="campaigns.total_events" type="number">
+  Number of events recorded for the campaign.
+</ResponseField>
+
+#### Nested: campaigns.agent
+
+<ResponseField name="agent.agent_name" type="string">
+  Name of the assigned agent.
+</ResponseField>
+
+<ResponseField name="agent.opening_message" type="string">
+  Greeting message used by the agent.
+</ResponseField>
+
+<ResponseField name="agent.qualification_scenario" type="string">
+  Criteria to determine how to qualify the caller.
+</ResponseField>
+
+<ResponseField name="agent.goals" type="string">
+  Campaign goals for the agent.
+</ResponseField>
+
+<ResponseField name="agent.background" type="string">
+  Background knowledge required by the agent.
+</ResponseField>
+
+<ResponseField name="agent.example_scenario" type="string">
+  Sample dialogue or use case for the agent.
+</ResponseField>
+
+### Response Example
+
+```json
+{
+   "responseCode": 2000,
+   "message": "Inbound campaigns fetched successfully",
+   "data": {
+      "analytics": {
+         "Total Calls Made": 4
+      },
+      "campaigns": [
+         {
+            "id": "********",
+            "user_id": "********",
+            "campaign_name": "new inbound campaign",
+            "phone_number": "********",
+            "agent_id": "********",
+            "transfer_numbers": {
+               "": ""
+            },
+            "ml_campaign_id": null,
+            "status": null,
+            "model": "Claude 3 Haiku",
+            "created_at": "2025-06-27T11:40:34.133Z",
+            "workflow_id": null,
+            "updated_at": "2025-06-27T11:40:34.133Z",
+            "state": "running",
+            "userCallers": {
+               "phone_number": "********",
+               "phone_number_details": {
+                  "phoneNumber": "********",
+                  "origin": "twilio",
+                  "status": "in-use",
+                  "friendlyName": "(309) 387-0017"
+               }
+            },
+            "agent": {
+               "agent_name": "Andrew Hamilton",
+               "opening_message": "Thank you for calling. How can I assist you today?",
+               "qualification_scenario": "The caller needs to be transferred to the appropriate department based on their request.",
+               "goals": "Determine which department the caller needs to be transferred to and complete the transfer efficiently.",
+               "background": "The agent should be familiar with the different departments and their responsibilities in order to direct the caller to the right place.",
+               "example_scenario": "Agent: Thank you for calling. How can I assist you today? Caller: I need to speak with someone in the sales department. Agent: Okay, let me transfer you to our sales department. One moment please. [Transfer to sales department]"
+            },
+            "total_events": 2
+         }
+      ]
+   }
+}
+```
