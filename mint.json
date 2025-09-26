@@ -1,6 +1,6 @@
 {
   "api": {
-    "baseUrl": "https://api.getmalakai.com/api/"
+    "baseUrl": "https://api.getmalakai.com/"
   },
   "$schema": "https://mintlify.com/schema.json",
   "name": "malakai AI",
