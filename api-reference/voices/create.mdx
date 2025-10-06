@@ -1,6 +1,6 @@
 ---
 title: 'Clone custom voice'
-api: 'POST /api/agent-voices/clone'
+api: 'POST agent-voices/clone'
 description: 'Create '
 ---
 
@@ -33,7 +33,7 @@ This endpoint accepts `multipart/form-data`.
 <RequestExample>
 ```bash cURL
 curl --request POST \
-  --url '/api/agent-voices/clone' \
+  --url 'agent-voices/clone' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: multipart/form-data' \
   -F 'name="Sample"' \

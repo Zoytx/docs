@@ -1,6 +1,6 @@
 ---
 title: 'Create User Agent'
-api: 'POST /api/agents/user'
+api: 'POST agents/user'
 description: 'Create and configure a new AI agent for a user.'
 ---
 
@@ -65,7 +65,7 @@ This endpoint accepts `multipart/form-data`.
 <RequestExample>
 ```bash cURL
 curl --request POST \
-  --url '/api/agents/user' \
+  --url 'agents/user' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: multipart/form-data' \
   -F 'agent_name="Support Agent"' \

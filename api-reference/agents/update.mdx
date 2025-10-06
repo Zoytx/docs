@@ -1,6 +1,6 @@
 ---
 title: "Update User Agent"
-api: "PUT /api/agents/user/{id}"
+api: "PUT agents/user/{id}"
 description: "Update the properties of an existing AI agent by its ID."
 ---
 
@@ -71,7 +71,7 @@ This endpoint accepts `multipart/form-data`. Send only the fields you wish to up
 <RequestExample>
 ```bash cURL
 curl --request PUT \
-  --url '/api/agents/user/agent_1a2b3c4d5e' \
+  --url 'agents/user/agent_1a2b3c4d5e' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   --header 'Content-Type: multipart/form-data' \
   -F 'agent_name="Sales Pro Agent"' \

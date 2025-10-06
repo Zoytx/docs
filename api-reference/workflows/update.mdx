@@ -1,6 +1,6 @@
 ---
 title: "Update a Workflow"
-api: "POST /api/workflows/create-or-update"
+api: "POST workflows/create-or-update"
 description: "Initiate the update of an existing workflow by providing details."
 ---
 
@@ -44,7 +44,7 @@ description: "Initiate the update of an existing workflow by providing details."
 <RequestExample>
 ```bash cURL
 curl --request POST \
-  --url '/api/workflows/create-or-update' \
+  --url 'workflows/create-or-update' \
   --header 'Authorization: Bearer YOUR_API_KEY' \
   -F 'name="Sample"' \
   -F 'description="sample description"' \
